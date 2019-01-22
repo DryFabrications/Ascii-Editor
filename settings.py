@@ -15,18 +15,20 @@ def read_config(config_file):
 
 def resolution(config):
     """Returns the x and y values for the resolution of your canvas in a list"""
-    error_msg = 'ERROR: Resolution value invalid. eg: \'200,200\''
     raw_res = config['resolution']
     res = raw_res.split(',')
+
+    def error_handle():
+        print('ERROR: Resolution value invalid. eg: \'200,200\'')
+        exit(10)
 
     if len(res) is 2:
         try:
             res[0] = int(res[0])
             res[1] = int(res[1])
         except ValueError:
-            print(error_msg)
-            exit(10)
+            error_handle()
     else:
-        print(error_msg)
+        error_handle()
 
     return res
