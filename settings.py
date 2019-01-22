@@ -12,6 +12,6 @@ def read_config(config_file):
 
 
 def resolution(config):
-    """Returns the x and y values for the resolution of your canvas"""
+    """Returns the x and y values for the resolution of your canvas in a list"""
     res = config['resolution']
     return res.split(',')
